@@ -1,0 +1,7 @@
+google_api_python_client==2.90.0
+google_auth_oauthlib==1.0.0
+gspread==5.9.0
+gspread_dataframe==3.3.1
+pandas==1.5.2
+protobuf==4.23.3
+pydrive==1.3.1
