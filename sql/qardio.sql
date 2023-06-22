@@ -11,7 +11,7 @@ SELECT * FROM email_log;
 
 DELIMITER $$
 	CREATE TRIGGER RemoveDuplicates
-	AFTER INSERT ON email_data
+	AFTER INSERT ON emails
 	FOR EACH ROW BEGIN
 		INSERT INTO Emaillog
 		VALUES (NEW.ID, OLD.Quantity, NEW.Quantity, TIMESTAMP);
@@ -19,7 +19,7 @@ DELIMITER $$
 DELIMITER ;
 
 LOAD DATA LOCAL INFILE '/Users/adamurquhart/data/qardio_data.csv'
-INTO TABLE email_data
+INTO TABLE emails
 FIELDS TERMINATED BY ','
 IGNORE 1 ROWS;
 
@@ -27,6 +27,6 @@ IGNORE 1 ROWS;
 SELECT date_sent,
 	subscribers,
     recipients
-FROM email_data
+FROM emails
 ORDER BY recipients DESC;
 
